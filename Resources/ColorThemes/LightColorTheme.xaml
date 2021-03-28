@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="SelectedColorLight">#3399ff</Color>
+    <Color x:Key="SelectedHoveredColorLight">#58b4ff</Color>
+    <Color x:Key="HoveredColorLight">#7dd3f9</Color>
+    <Color x:Key="DefaultColorLight">#666666</Color>
+    <Color x:Key="DefaultBackgroundColorLight">#ffffff</Color>
+    <Color x:Key="DefaultForegroundColorLight">#000000</Color>
+    <Color x:Key="DefaultHoveredColorLight">#999999</Color>
+    <Color x:Key="SelectedCriticalColorLight">#ff0000</Color>
+    <Color x:Key="HoveredCriticalColorLight">#ffe0e0</Color>
+    <Color x:Key="ButtonPressedBorderColorLight">#1379df</Color>
+    <Color x:Key="ButtonPressedCriticalBorderColorLight">#cc0000</Color>
+    <Color x:Key="ButtonMouseOverBackgroundColorLight">#ddefff</Color>
+    <Color x:Key="ButtonPressedBackgroundColorLight">#DAECFC</Color>
+    <Color x:Key="ButtonPressedCriticalBackgroundColorLight">#fcdddd</Color>
+    <Color x:Key="DisabledBackgroundColorLight">#F0F0F0</Color>
+    <Color x:Key="MenuItemBackgroundColorLight">#F9F9F9</Color>
+    <Color x:Key="MenuGestureForegroundColorLight">#606060</Color>
+    <Color x:Key="DisabledBorderColorLight">#D9D9D9</Color>
+    <Color x:Key="FocusLostedBorderColorLight">#b0b0b0</Color>
+</ResourceDictionary>

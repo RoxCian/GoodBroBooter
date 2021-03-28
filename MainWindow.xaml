@@ -1,0 +1,272 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoodBroBooter"
+        xmlns:resx="clr-namespace:GoodBroBooter.My.Resources"
+        mc:Ignorable="d"
+        x:Name="TheWindow" Title="GoodBroBooter" Height="450" Width="650" MinHeight="360" MinWidth="580"  WindowStyle="None" WindowStartupLocation="CenterOwner" SnapsToDevicePixels="True" Focusable="False" RenderOptions.ClearTypeHint="Enabled" WindowChrome.WindowChrome="{StaticResource WindowChrome}" Template="{StaticResource WindowTemplate}">
+    <Grid Background="{StaticResource  DefaultBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="0" Grid.ColumnSpan="2" Focusable="True" TabStripPlacement="Left" BorderThickness="0" Style="{StaticResource TabControlStyle}" MouseUp="ResetFocus">
+            <TabItem MinWidth="100" Header="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.BootSettings}" Focusable="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="40" BorderThickness="5 0 0 0" BorderBrush="{StaticResource  DefaultBrush}" Template="{StaticResource TabItemHeaderTemplate}"  MouseUp="ResetFocus">
+                <Grid MouseUp="ResetFocus">
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ApplicationPath}" TextWrapping="Wrap" SnapsToDevicePixels="True" Grid.Row="0" Grid.Column="0"/>
+                    <local:CueBannerTextBox x:Name="ApplicationPathTextBox" Text="{Binding Settings.ApplicationPath, ElementName=TheWindow}" VerticalAlignment="Center" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.Row="0" Grid.Column="1" InputScope="FullFilePath" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ApplicationPathBanner}" CueBannerFontStyle="Italic"/>
+                    <local:ColorizedButton Content="..." BorderBrush="{StaticResource  DefaultBrush}" Margin="10 0 30 0" MinWidth="10" Style="{StaticResource ButtonStyle}" VerticalAlignment="Center" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.Row="0" Grid.Column="2" Height="{Binding ActualHeight, ElementName=ApplicationPathTextBox}" Command="{Binding ElementName=ApplicationPathDialog}"/>
+                    <local:OpenFileDialogControl x:Name="ApplicationPathDialog" Title="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ApplicationPathDialogTitle}" DefaultExt=".exe" Filter="*.exe;*.sys;*.com;*.bat;*.cmd|*.*" FilterDescription="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.OpenApplicationFilterDescription}" Returned="HandleApplicationPathDialogReturned"/>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellStatement}" TextWrapping="Wrap" SnapsToDevicePixels="True" Grid.Row="1" Grid.Column="0"/>
+                    <local:CueBannerTextBox VerticalAlignment="Center" Text="{Binding Settings.ShellStatement, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellStatementBanner}" CueBannerFontStyle="Italic"/>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ProcessName}" TextWrapping="Wrap" Grid.Row="2" Grid.Column="0"/>
+                    <local:CueBannerTextBox x:Name="ProcessNameToMonitorTextBox" VerticalAlignment="Center" Text="{Binding Settings.ProcessNameToMonitor, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.ColumnSpan="2"  Grid.Row="2" Grid.Column="1" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ProcessNameBanner}" CueBannerFontStyle="Italic"/>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ConfiguratorPath}" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0"/>
+                    <local:CueBannerTextBox x:Name="ConfiguratorPathTextBox" Text="{Binding Settings.ConfiguratorPath, ElementName=TheWindow}" VerticalAlignment="Center" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.Row="3" Grid.Column="1" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ConfiguratorPathBanner}" CueBannerFontStyle="Italic"/>
+                    <local:ColorizedButton Content="..." BorderBrush="{StaticResource  DefaultBrush}" Margin="10 0 30 0" MinWidth="10" Style="{StaticResource ButtonStyle}" VerticalAlignment="Center" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.Row="3" Grid.Column="2" Height="{Binding ActualHeight, ElementName=ConfiguratorPathTextBox}" Command="{Binding ElementName=ConfiguratorPathDialog}"/>
+                    <local:OpenFileDialogControl x:Name="ConfiguratorPathDialog" Title="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ConfiguratorPathDialogTitle}" DefaultExt=".exe" Filter="*.exe;*.sys;*.com;*.bat;*.cmd|*.*" FilterDescription="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.OpenApplicationFilterDescription}" Returned="HandleConfiguratorPathDialogReturned"/>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ProcessPriorityClass}" TextWrapping="Wrap" Grid.Row="4" Grid.Column="0"/>
+                    <ComboBox x:Name="ProcessPriorityClassComboBox" BorderThickness="0 0 0 2" VerticalAlignment="Center" SelectedIndex="{Binding Settings.ProcessPriorityClass, ElementName=TheWindow, Converter={StaticResource PriorityConverter}}" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" ItemContainerStyle="{StaticResource ComboBoxItemContainerStyle}" UseLayoutRounding="True">
+                        <ComboBox.Style>
+                            <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxStyle}">
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding SelectIndex, RelativeSource={RelativeSource Mode=Self}}" Value="0"/>
+                                            <Condition Binding="{Binding IsRunAsAdministrator, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" Value="False"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Foreground" Value="{StaticResource  DisabledBorderBrush}"/>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassRealTime, Source={x:Static local:LocalizationHelper.Service}}" IsEnabled="{Binding IsRunAsAdministrator, ElementName=TheWindow}"/>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassHigh, Source={x:Static local:LocalizationHelper.Service}}"/>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassAboveNormal, Source={x:Static local:LocalizationHelper.Service}}"/>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassNormal, Source={x:Static local:LocalizationHelper.Service}}"/>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassBelowNormal, Source={x:Static local:LocalizationHelper.Service}}"/>
+                        <ComboBoxItem Content="{Binding Localization.ProcessPriorityClassIdle, Source={x:Static local:LocalizationHelper.Service}}"/>
+                    </ComboBox>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.DelayToMonitorProcess}" TextWrapping="Wrap" Grid.Row="5" Grid.Column="0"/>
+                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                        <local:CueBannerNumericBox VerticalAlignment="Center" HorizontalAlignment="Left" Value="{Binding Settings.DelayToMonitorProcess, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.MillisecondBanner}" CueBannerFontStyle="Italic"/>
+                        <TextBlock VerticalAlignment="Center" Text="ms" Foreground="{StaticResource  DefaultForegroundBrush}" Style="{StaticResource CanDisableTextBlockStyle}"/>
+                    </StackPanel>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.RetryIntervalForProcessMonitoring}" TextWrapping="Wrap" Grid.Row="6" Grid.Column="0"/>
+                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                        <local:CueBannerNumericBox VerticalAlignment="Center" HorizontalAlignment="Left" Value="{Binding Settings.RetryIntervalForProcessMonitoring, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.MillisecondBanner}" CueBannerFontStyle="Italic"/>
+                        <TextBlock VerticalAlignment="Center" Text="ms" Foreground="{StaticResource  DefaultForegroundBrush}" Style="{StaticResource CanDisableTextBlockStyle}"/>
+                    </StackPanel>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.MaxRetryCountForProcessMonitoring}" TextWrapping="Wrap" Grid.Row="7" Grid.Column="0"/>
+                    <local:CueBannerNumericBox VerticalAlignment="Center" HorizontalAlignment="Left" Value="{Binding Settings.MaxRetryCountForProcessMonitoring, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" SnapsToDevicePixels="True" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.CountsBanner}" CueBannerFontStyle="Italic" Grid.Row="7" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.AdditionalTasks}" Focusable="True" Height="40" HorizontalAlignment="Stretch" Template="{StaticResource TabItemHeaderTemplate}" BorderThickness="0" MouseUp="ResetFocus">
+                <Grid MouseUp="ResetFocus">
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ScreenOrientation}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="0"/>
+                    <ComboBox Style="{DynamicResource ComboBoxStyle}" BorderThickness="0 0 0 2" VerticalAlignment="Center" SelectedIndex="{Binding Settings.ScreenOrientation, ElementName=TheWindow, Converter={StaticResource EnumValueConverter}}" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="0" Grid.Column="1" ItemContainerStyle="{StaticResource ComboBoxItemContainerStyle}" UseLayoutRounding="True">
+                        <ComboBox.Items>
+                            <ComboBoxItem Content="-" />
+                            <ComboBoxItem Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ScreenOrientationLandscape}" />
+                            <ComboBoxItem Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ScreenOrientationPortrait}" />
+                            <ComboBoxItem Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ScreenOrientationFlippedLandscape}" />
+                            <ComboBoxItem Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ScreenOrientationFlippedPortrait}" />
+                        </ComboBox.Items>
+                    </ComboBox>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.Resolution}" TextWrapping="Wrap" Grid.Row="1" Grid.Column="0"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                        <local:CueBannerNumericBox VerticalAlignment="Center" Value="{Binding Settings.ResolutionX, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ResolutionXBanner}" CueBannerFontStyle="Italic"/>
+                        <TextBlock VerticalAlignment="Center" Text="×" Foreground="{StaticResource DefaultForegroundBrush}" Style="{StaticResource CanDisableTextBlockStyle}"/>
+                        <local:CueBannerNumericBox VerticalAlignment="Center" Value="{Binding Settings.ResolutionY, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ResolutionYBanner}" CueBannerFontStyle="Italic"/>
+                    </StackPanel>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.DisplayFrequency}" TextWrapping="Wrap" Grid.Row="2" Grid.Column="0"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                        <local:CueBannerNumericBox VerticalAlignment="Center" Value="{Binding Settings.DisplayFrequency, ElementName=TheWindow, Mode=TwoWay}" Width="60" BorderThickness="0 0 0 2" BorderBrush="{StaticResource DefaultBrush}" TextWrapping="NoWrap" InputScope="Number" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.DisplayFrequencyBanner}" CueBannerFontStyle="Italic"/>
+                        <TextBlock VerticalAlignment="Center" Text="Hz" Foreground="{StaticResource DefaultForegroundBrush}" Style="{StaticResource CanDisableTextBlockStyle}"/>
+                    </StackPanel>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellAnotherTask}" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0"/>
+                    <local:CueBannerTextBox VerticalAlignment="Center" Text="{Binding Settings.ShellAnotherTask, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="3" Grid.Column="1" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellAnotherTaskBanner}" CueBannerFontStyle="Italic"/>
+                    
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellPostTask}" TextWrapping="Wrap" Grid.Row="4" Grid.Column="0"/>
+                    <local:CueBannerTextBox VerticalAlignment="Center" Text="{Binding Settings.ShellPostTask, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" TextWrapping="Wrap" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="4" Grid.Column="1" CueBannerText="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.ShellPostTaskBanner}" CueBannerFontStyle="Italic"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.BooterSettings}" Focusable="True" Height="40" HorizontalAlignment="Stretch" Template="{StaticResource TabItemHeaderTemplate}">
+                <Grid MouseUp="ResetFocus">
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                        <RowDefinition MaxHeight="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.AutoBoot}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="0"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding Settings.AutoBoot, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="0" Grid.Column="1" />
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.AutoHide}" TextWrapping="Wrap" Grid.Row="1" Grid.Column="0"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding Settings.AutoHide, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.AutoQuit}" TextWrapping="Wrap" Grid.Row="2" Grid.Column="0"/>
+                    <CheckBox Style="{DynamicResource CheckBoxStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding Settings.AutoQuit, ElementName=TheWindow}" BorderThickness="0 0 0 2" BorderBrush="{StaticResource  DefaultBrush}" Grid.Row="2" Grid.Column="1" />
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.Language}" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0"/>
+                    <ComboBox Style="{DynamicResource ComboBoxStyle}" BorderThickness="0 0 0 2" VerticalAlignment="Center" SelectedIndex="{Binding Settings.LanguageCultureTag, ElementName=TheWindow, Converter={x:Static local:LocalizationHelper.CultureTagToCultureIndexConverter}}" BorderBrush="{StaticResource  DefaultBrush}" Margin="0 0 30 0" IsEnabled="{Binding IsMonitoring, ElementName=TheWindow, Converter={StaticResource InvertConverter}}" Grid.Row="4" Grid.Column="1" ItemContainerStyle="{StaticResource ComboBoxItemContainerStyle}" UseLayoutRounding="True">
+                        <ComboBox.ItemsSource>
+                            <CompositeCollection>
+                                <ComboBoxItem Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.SystemLanguage}"/>
+                                <CollectionContainer Collection="{Binding Source={x:Static local:LocalizationHelper.CultureNameList}}"/>
+                            </CompositeCollection>
+                        </ComboBox.ItemsSource>
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.About}" Focusable="True" Height="40" HorizontalAlignment="Stretch" Template="{StaticResource TabItemHeaderTemplate}">
+                <TabItem.Content>
+                    <Grid>
+                        <TextBlock LineHeight="36">
+                        <LineBreak/>
+                        GoodBroBooter
+                        <LineBreak/>
+                        v1
+                        <LineBreak/>
+                        By Rox Cian
+                        </TextBlock>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+
+        <TextBlock VerticalAlignment="Center" Text="" TextWrapping="Wrap" Grid.Row="1" Grid.Column="0"/>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Grid Margin="0 0 15 0" DockPanel.Dock="Right">
+                <local:ColorizedButton VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.BootIt}" ContentMargin="15 0 15 0" Opacity="1.0" MinWidth="70" Height="25" Grid.Row="2" Grid.Column="1" Click="BootButton_Click">
+                    <local:ColorizedButton.Style>
+                        <Style TargetType="local:ColorizedButton" BasedOn="{StaticResource ButtonStyle}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMonitoring, ElementName=TheWindow}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <BeginStoryboard.Storyboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.0" Duration="{StaticResource AnimationDuration}"/>
+                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                        <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            <DiscreteObjectKeyFrame KeyTime="{StaticResource AnimationTime}" Value="{x:Static Visibility.Hidden}"/>
+                                                        </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard.Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <BeginStoryboard.Storyboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="{StaticResource AnimationDuration}"/>
+                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                        <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                                                        </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard.Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </local:ColorizedButton.Style>
+                </local:ColorizedButton>
+                <local:ColorizedButton VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.BootStop}" ContentMargin="15 0 15 0" Opacity="0.0" Visibility="Hidden" MinWidth="70" Height="25" Grid.Row="2" Grid.Column="1" Click="StopButton_Click">
+                    <local:ColorizedButton.Style>
+                        <Style TargetType="local:ColorizedButton" BasedOn="{StaticResource ButtonStyle}">
+                            <Setter Property="MouseOverBackground" Value="{StaticResource  HoveredCriticalBrush}"/>
+                            <Setter Property="MouseOverBorderBrush" Value="{StaticResource  SelectedCriticalBrush}"/>
+                            <Setter Property="MouseOverForeground" Value="{StaticResource  SelectedCriticalBrush}"/>
+                            <Setter Property="PressedBackground" Value="{StaticResource  ButtonPressedCriticalBackgroundBrush}"/>
+                            <Setter Property="PressedBorderBrush" Value="{StaticResource  ButtonPressedCriticalBorderBrush}"/>
+                            <Setter Property="PressedForeground" Value="{StaticResource  ButtonPressedCriticalBorderBrush}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMonitoring, ElementName=TheWindow}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <BeginStoryboard.Storyboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.0" Duration="{StaticResource AnimationDuration}"/>
+                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                        <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                                                        </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard.Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <BeginStoryboard.Storyboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="{StaticResource AnimationDuration}"/>
+                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                                                        <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            <DiscreteObjectKeyFrame KeyTime="{StaticResource AnimationTime}" Value="{x:Static Visibility.Hidden}"/>
+                                                        </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </BeginStoryboard.Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </local:ColorizedButton.Style>
+                </local:ColorizedButton>
+            </Grid>
+            <local:ColorizedButton DockPanel.Dock="Right" Margin="0 0 15 0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" Content="{Binding Source={x:Static local:LocalizationHelper.Service}, Path=Localization.OpenConfigurator}" ContentMargin="15 0 15 0" MinWidth="70" Height="25" Grid.Row="2" Grid.Column="1" Click="OpenConfiguratorButton_Click"/>
+        </DockPanel>
+    </Grid>
+</Window>

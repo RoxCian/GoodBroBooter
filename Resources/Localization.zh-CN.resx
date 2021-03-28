@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BootSettings" xml:space="preserve">
+    <value>启动设定</value>
+  </data>
+  <data name="ApplicationPath" xml:space="preserve">
+    <value>程序路径</value>
+  </data>
+  <data name="ApplicationPathBanner" xml:space="preserve">
+    <value>指定程序的路径...</value>
+  </data>
+  <data name="OptionMarkOn" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="OptionMarkOff" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AdditionalTasks" xml:space="preserve">
+    <value>附加任务</value>
+  </data>
+  <data name="ShellStatement" xml:space="preserve">
+    <value>启动命令</value>
+  </data>
+  <data name="ShellStatementBanner" xml:space="preserve">
+    <value>指定启动程序的命令...</value>
+  </data>
+  <data name="ShellPostTaskBanner" xml:space="preserve">
+    <value>添加一个关闭程序后执行的任务...</value>
+  </data>
+  <data name="ApplicationPathDialogTitle" xml:space="preserve">
+    <value>选择程序文件...</value>
+  </data>
+  <data name="AutoBoot" xml:space="preserve">
+    <value>打开启动器时启动程序</value>
+  </data>
+  <data name="AutoHide" xml:space="preserve">
+    <value>启动程序后自动隐藏</value>
+  </data>
+  <data name="AutoQuit" xml:space="preserve">
+    <value>关闭程序后自动退出</value>
+  </data>
+  <data name="ConfiguratorPath" xml:space="preserve">
+    <value>配置程序路径</value>
+  </data>
+  <data name="ConfiguratorPathBanner" xml:space="preserve">
+    <value>指定配置程序的路径...</value>
+  </data>
+  <data name="ConfiguratorPathDialogTitle" xml:space="preserve">
+    <value>选择配置程序...</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="ProcessName" xml:space="preserve">
+    <value>进程名</value>
+  </data>
+  <data name="ProcessNameBanner" xml:space="preserve">
+    <value>指定要监视的进程名称...</value>
+  </data>
+  <data name="Resolution" xml:space="preserve">
+    <value>分辨率</value>
+  </data>
+  <data name="ResolutionYBanner" xml:space="preserve">
+    <value>高...</value>
+  </data>
+  <data name="ResolutionXBanner" xml:space="preserve">
+    <value>宽...</value>
+  </data>
+  <data name="ScreenOrientation" xml:space="preserve">
+    <value>显示方向</value>
+  </data>
+  <data name="ScreenOrientationPortrait" xml:space="preserve">
+    <value>纵向</value>
+  </data>
+  <data name="ScreenOrientationLandscape" xml:space="preserve">
+    <value>横向</value>
+  </data>
+  <data name="ScreenOrientationFlippedPortrait" xml:space="preserve">
+    <value>纵向（翻转）</value>
+  </data>
+  <data name="ScreenOrientationFlippedLandscape" xml:space="preserve">
+    <value>横向（翻转）</value>
+  </data>
+  <data name="ShellPostTask" xml:space="preserve">
+    <value>后处理任务命令</value>
+  </data>
+  <data name="ShellAnotherTask" xml:space="preserve">
+    <value>附加任务命令</value>
+  </data>
+  <data name="ShellAnotherTaskBanner" xml:space="preserve">
+    <value>添加一个任务...</value>
+  </data>
+  <data name="SystemLanguage" xml:space="preserve">
+    <value>与系统语言相同</value>
+  </data>
+  <data name="BootIt" xml:space="preserve">
+    <value>启动!!</value>
+  </data>
+  <data name="OpenConfigurator" xml:space="preserve">
+    <value>打开配置程序</value>
+  </data>
+  <data name="BooterSettings" xml:space="preserve">
+    <value>启动器设定</value>
+  </data>
+  <data name="BootStop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="VbOk" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="VbCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="VbRetry" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="VbIgnore" xml:space="preserve">
+    <value>忽略</value>
+  </data>
+  <data name="VbAbort" xml:space="preserve">
+    <value>中止</value>
+  </data>
+  <data name="VbYes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="VbNo" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="OpenApplicationFilterDescription" xml:space="preserve">
+    <value>可执行文件|所有文件</value>
+  </data>
+  <data name="QuitMessage" xml:space="preserve">
+    <value>退出启动器？</value>
+  </data>
+  <data name="QuitMessageTitle" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="OpenConfiguratorFailedMessage" xml:space="preserve">
+    <value>打开配置程序失败。</value>
+  </data>
+  <data name="OpenConfiguratorFailedMessageTitle" xml:space="preserve">
+    <value>配置失败</value>
+  </data>
+  <data name="OpenConfiguratorAsAdminMessage" xml:space="preserve">
+    <value>要打开配置程序，请先以管理员权限运行启动器。</value>
+  </data>
+  <data name="BootFailedMessageTitle" xml:space="preserve">
+    <value>启动失败</value>
+  </data>
+  <data name="BootFailedMessage" xml:space="preserve">
+    <value>无法启动程序。</value>
+  </data>
+  <data name="BootAsAdminMessage" xml:space="preserve">
+    <value>要启动程序，请先以管理员权限运行启动器。</value>
+  </data>
+  <data name="BootPathNeededMessage" xml:space="preserve">
+    <value>未指定程序路径或命令。</value>
+  </data>
+  <data name="BootFailedWhileSetDevModeMessage" xml:space="preserve">
+    <value>设置分辨率、显示方向或刷新率失败。</value>
+  </data>
+  <data name="PostProcessingFailedMessage" xml:space="preserve">
+    <value>无法执行后处理程序。</value>
+  </data>
+  <data name="PostProcessingFailedWhileSetDevModeMessage" xml:space="preserve">
+    <value>未能将分辨率、显示方向或刷新率还原。</value>
+  </data>
+  <data name="PostProcessingFailedMessageTitle" xml:space="preserve">
+    <value>后处理失败</value>
+  </data>
+  <data name="MenuStop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="BootFileNotFoundMessage" xml:space="preserve">
+    <value>无法找到指定文件。</value>
+  </data>
+  <data name="RetryIntervalForProcessMonitoring" xml:space="preserve">
+    <value>重试启动进程监视的时间间隔</value>
+  </data>
+  <data name="MaxRetryCountForProcessMonitoring" xml:space="preserve">
+    <value>重试启动进程监视的最大次数</value>
+  </data>
+  <data name="DelayToMonitorProcess" xml:space="preserve">
+    <value>进程监视启动延迟</value>
+  </data>
+  <data name="MillisecondBanner" xml:space="preserve">
+    <value>毫秒...</value>
+  </data>
+  <data name="CountsBanner" xml:space="preserve">
+    <value>次数...</value>
+  </data>
+  <data name="ProcessPriorityClass" xml:space="preserve">
+    <value>进程优先级</value>
+  </data>
+  <data name="ProcessPriorityClassRealTime" xml:space="preserve">
+    <value>实时</value>
+  </data>
+  <data name="ProcessPriorityClassHigh" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="ProcessPriorityClassAboveNormal" xml:space="preserve">
+    <value>高于正常</value>
+  </data>
+  <data name="ProcessPriorityClassNormal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="ProcessPriorityClassBelowNormal" xml:space="preserve">
+    <value>低于正常</value>
+  </data>
+  <data name="ProcessPriorityClassIdle" xml:space="preserve">
+    <value>低</value>
+  </data>
+  <data name="CutMenuHeader" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="CopyMenuHeader" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="PasteMenuHeader" xml:space="preserve">
+    <value>粘贴</value>
+  </data>
+  <data name="DisplayFrequency" xml:space="preserve">
+    <value>刷新率</value>
+  </data>
+  <data name="DisplayFrequencyBanner" xml:space="preserve">
+    <value>频率...</value>
+  </data>
+</root>

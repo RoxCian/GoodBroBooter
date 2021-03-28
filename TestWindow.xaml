@@ -1,0 +1,12 @@
+﻿<Window Style="{DynamicResource WindowStyle1}" x:Class="TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoodBroBooter"
+        mc:Ignorable="d"
+        Title="TestWindow" Height="100" Width="180" MaxHeight="150" MaxWidth="260" WindowChrome.WindowChrome="{StaticResource WindowChrome}" Template="{StaticResource WindowTemplate}">
+    <Grid>
+        <Button Content="Test" Margin="20" Click="Button_Click"/>
+    </Grid>
+</Window>
